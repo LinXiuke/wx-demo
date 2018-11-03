@@ -1,9 +1,14 @@
 package pers.hogwarts.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import pers.hogwarts.util.CheckoutUtil;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import pers.hogwarts.Common.util.CheckoutUtil;
+import pers.hogwarts.Manager.MessageManager;
+import pers.hogwarts.form.MessageForm;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -11,7 +16,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * @Description:
+ * @Description:  部署在tomcat下需要为80端口，微信公众号后台验证token的远程服务器http请求只能是80端口
  * @Author: Hogwarts
  * @Date: 2018/10/29
  */
@@ -21,6 +26,11 @@ public class WXController {
     @Value("${wx.token}")
     private String token;
 
+    @Autowired
+    private MessageManager messageManager;
+
+
+    //get方法为微信后台服务器验证token方法
     @GetMapping("/wx")
     public void verification(HttpServletRequest request, HttpServletResponse response) {
         PrintWriter print;
@@ -43,6 +53,12 @@ public class WXController {
             }
         }
 
+    }
+
+    //post方法为微信后台回复消息方法
+    @PostMapping(value = "/wx", produces = { "application/xml;charset=UTF-8" })
+    public Object message(@RequestBody MessageForm form) {
+        return messageManager.getMessage(form);
     }
 
 }
