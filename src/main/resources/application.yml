@@ -1,0 +1,8 @@
+server:
+    port: 8002
+
+wx:
+    #微信后台填写的token
+    token: hogwarts
+    appId: wxd4924ef868376069
+    secret: df00878f6c2e409e55db617470bd25e0
