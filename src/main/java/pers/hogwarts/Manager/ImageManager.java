@@ -3,7 +3,6 @@ package pers.hogwarts.Manager;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.ResourceUtils;
@@ -37,7 +36,7 @@ public class ImageManager {
         httpHeaders.set("Connection", "Keep-Alive");
         httpHeaders.set("Charset", "UTF-8");
         httpHeaders.set("Content-Type", "multipart/form-data;boundary=" + System.currentTimeMillis());
-        JSONObject result = HttpClient.doPost(url, params, httpHeaders);
+        JSONObject result = HttpClient.doPostJSON(url, params, httpHeaders);
 
         return result;
     }

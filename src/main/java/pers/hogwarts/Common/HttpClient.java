@@ -22,7 +22,20 @@ public class HttpClient {
         return responseEntity.getBody();
     }
 
-    public static JSONObject doPost(String url, MultiValueMap<String, Object> params, HttpHeaders httpHeaders) {
+    public static JSONObject doGetJSON(String url) {
+        RestTemplate restTemplate = new RestTemplate();
+        ResponseEntity<String> responseEntity = restTemplate.getForEntity(url,  String.class);
+        return JSONObject.parseObject(responseEntity.getBody());
+    }
+
+    public static String doPost(String url, MultiValueMap<String, Object> params, HttpHeaders httpHeaders) {
+        RestTemplate restTemplate = new RestTemplate();
+        HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, httpHeaders);
+        ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestEntity,  String.class);
+        return responseEntity.getBody();
+    }
+
+    public static JSONObject doPostJSON(String url, MultiValueMap<String, Object> params, HttpHeaders httpHeaders) {
         RestTemplate restTemplate = new RestTemplate();
         HttpEntity<MultiValueMap<String, Object>> requestEntity = new HttpEntity<>(params, httpHeaders);
         ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, requestEntity,  String.class);
