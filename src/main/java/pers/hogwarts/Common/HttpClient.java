@@ -19,7 +19,7 @@ public class HttpClient {
     public static String doGet(String url) {
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<String> responseEntity = restTemplate.getForEntity(url,  String.class);
-        return JSON.parseObject(responseEntity.getBody());
+        return responseEntity.getBody();
     }
 
     public static JSONObject doPost(String url, MultiValueMap<String, Object> params, HttpHeaders httpHeaders) {
