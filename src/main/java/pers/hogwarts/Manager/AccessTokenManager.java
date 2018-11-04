@@ -25,6 +25,10 @@ public class AccessTokenManager {
     @Value("${wx.secret}")
     private String secret;
 
+    /**
+     * 项目中使用时应将access_token放入缓存中
+     * @return
+     */
     public AccessTokenResult getAccessToken() {
         Map<String, String> params = new HashMap<>();
         params.put("grant_type", "client_credential");

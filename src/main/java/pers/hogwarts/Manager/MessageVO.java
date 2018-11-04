@@ -30,7 +30,7 @@ public class MessageVO implements Serializable {
 
     @JacksonXmlCData
     @JacksonXmlProperty(localName = "MsgType")
-    private String msgType;
+    private String msgType = "text";
 
     @JacksonXmlCData
     @JacksonXmlProperty(localName = "Content")

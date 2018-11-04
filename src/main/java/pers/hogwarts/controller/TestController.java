@@ -1,8 +1,10 @@
 package pers.hogwarts.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import pers.hogwarts.Manager.AccessTokenManager;
+import pers.hogwarts.Manager.ImageManager;
 import pers.hogwarts.Manager.MessageManager;
 import pers.hogwarts.form.MessageForm;
 
@@ -32,5 +34,10 @@ public class TestController {
     @GetMapping(value = "message", produces = { "application/xml;charset=UTF-8" })
     public Object getMessage(@RequestBody MessageForm form) {
         return messageManager.getMessage(form);
+    }
+
+    @PostMapping(value = "upload", produces = { "application/xml;charset=UTF-8" })
+    public JSONObject upload() {
+        return ImageManager.upload("classpath:image/1.jpg", accessTokenManager.getAccessToken().getAccessToken());
     }
 }

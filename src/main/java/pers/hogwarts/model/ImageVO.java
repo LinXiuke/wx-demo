@@ -30,7 +30,7 @@ public class ImageVO implements Serializable {
 
     @JacksonXmlCData
     @JacksonXmlProperty(localName = "MsgType")
-    private String msgType;
+    private String msgType = "image";
 
     @JacksonXmlCData
     @JacksonXmlProperty(localName = "Image")
