@@ -1,9 +1,10 @@
-package pers.hogwarts.model;
+package pers.hogwarts.model.vo;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import lombok.Data;
+import pers.hogwarts.model.ImageNode;
 
 import java.io.Serializable;
 

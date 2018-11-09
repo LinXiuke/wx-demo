@@ -1,12 +1,10 @@
 package pers.hogwarts.Manager;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import pers.hogwarts.Common.HttpClient;
-import pers.hogwarts.model.AccessTokenResult;
+import pers.hogwarts.model.result.AccessTokenResult;
 
 import java.util.HashMap;
 import java.util.Map;

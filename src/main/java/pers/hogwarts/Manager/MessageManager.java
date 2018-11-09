@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pers.hogwarts.form.MessageForm;
 import pers.hogwarts.model.ImageNode;
-import pers.hogwarts.model.ImageVO;
+import pers.hogwarts.model.vo.ImageVO;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package pers.hogwarts.model;
+package pers.hogwarts.model.result;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
