@@ -1,6 +1,6 @@
 package pers.hogwarts.model.result;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.util.List;
@@ -17,13 +17,13 @@ public class UserInfoResult {
     /**
      * 用户是否订阅该公众号标识，值为0时，代表此用户没有关注该公众号，拉取不到其余信息
      */
-    @JsonProperty("subscribe")
+    @JSONField(name = "subscribe")
     private Integer subScribe;
 
     /**
      * 用户的标识，对当前公众号唯一
      */
-    @JsonProperty("openid")
+    @JSONField(name = "openid")
     private String openId;
 
     /**
@@ -61,19 +61,19 @@ public class UserInfoResult {
      * 用户没有头像时该项为空。
      * 若用户更换头像，原有头像URL将失效
      */
-    @JsonProperty("headimgurl")
+    @JSONField(name = "headimgurl")
     private String headImgUrl;
 
     /**
      * 用户关注时间，为时间戳。如果用户曾多次关注，则取最后关注时间
      */
-    @JsonProperty("subscribe_time")
+    @JSONField(name = "subscribe_time")
     private String subScribeTime;
 
     /**
      * 只有在用户将公众号绑定到微信开放平台帐号后，才会出现该字段
      */
-    @JsonProperty("unionid")
+    @JSONField(name = "unionid")
     private String unionId;
 
     /**
@@ -81,18 +81,41 @@ public class UserInfoResult {
      */
     private String remark;
 
-    @JsonProperty("groupid")
+    /**
+     * 用户所在的分组ID（兼容旧的用户分组接口）
+     */
+    @JSONField(name = "groupid")
     private String groupId;
 
-    @JsonProperty("tagid_list")
+    /**
+     * 用户被打上的标签ID列表
+     */
+    @JSONField(name = "tagid_list")
     private List<Integer> tagIdList;
 
-    @JsonProperty("subscribe_scene")
+    /**
+     * 返回用户关注的渠道来源，
+     * ADD_SCENE_SEARCH 公众号搜索，
+     * ADD_SCENE_ACCOUNT_MIGRATION 公众号迁移，
+     * ADD_SCENE_PROFILE_CARD 名片分享，
+     * ADD_SCENE_QR_CODE 扫描二维码，
+     * ADD_SCENEPROFILE LINK 图文页内名称点击，
+     * ADD_SCENE_PROFILE_ITEM 图文页右上角菜单，
+     * ADD_SCENE_PAID 支付后关注，
+     * ADD_SCENE_OTHERS 其他
+     */
+    @JSONField(name = "subscribe_scene")
     private String subScribeScene;
 
-    @JsonProperty("qr_scene")
+    /**
+     * 二维码扫码场景（开发者自定义）
+     */
+    @JSONField(name = "qr_scene")
     private String qrScene;
 
-    @JsonProperty("qr_scene_str")
+    /**
+     * 二维码扫码场景描述（开发者自定义）
+     */
+    @JSONField(name = "qr_scene_str")
     private String qrSceneStr;
 }
