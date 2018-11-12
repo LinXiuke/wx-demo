@@ -2,6 +2,7 @@ package pers.hogwarts.Manager;
 
 import com.alibaba.fastjson.JSON;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import pers.hogwarts.Common.HttpClient;
 import pers.hogwarts.model.result.AccessTokenResult;
@@ -27,6 +28,7 @@ public class AccessTokenManager {
      * 项目中使用时应将access_token放入缓存中
      * @return
      */
+    @Cacheable(value = "accessToken", keyGenerator = "keyGenerator")
     public AccessTokenResult getAccessToken() {
         Map<String, String> params = new HashMap<>();
         params.put("grant_type", "client_credential");
