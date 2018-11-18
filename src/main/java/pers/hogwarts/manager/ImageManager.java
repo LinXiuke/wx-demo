@@ -1,12 +1,13 @@
-package pers.hogwarts.Manager;
+package pers.hogwarts.manager;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.ResourceUtils;
-import pers.hogwarts.Common.HttpClient;
+import pers.hogwarts.common.HttpClient;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -36,7 +37,7 @@ public class ImageManager {
         httpHeaders.set("Connection", "Keep-Alive");
         httpHeaders.set("Charset", "UTF-8");
         httpHeaders.set("Content-Type", "multipart/form-data;boundary=" + System.currentTimeMillis());
-        JSONObject result = HttpClient.doPostJSON(url, params, httpHeaders);
+        JSONObject result = JSON.parseObject(HttpClient.doPost(url, params, httpHeaders));
 
         return result;
     }

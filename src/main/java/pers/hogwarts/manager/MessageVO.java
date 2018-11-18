@@ -1,4 +1,4 @@
-package pers.hogwarts.Manager;
+package pers.hogwarts.manager;
 
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;

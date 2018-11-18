@@ -1,4 +1,4 @@
-package pers.hogwarts.Common.util;
+package pers.hogwarts.common.util;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

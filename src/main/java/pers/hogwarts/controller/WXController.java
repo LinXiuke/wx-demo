@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import pers.hogwarts.Common.util.CheckoutUtil;
-import pers.hogwarts.Manager.MessageManager;
+import pers.hogwarts.common.util.CheckoutUtil;
+import pers.hogwarts.manager.MessageManager;
 import pers.hogwarts.form.MessageForm;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,7 +58,12 @@ public class WXController {
     //post方法为微信后台回复消息方法
     @PostMapping(value = "/wx", produces = { "application/xml;charset=UTF-8" })
     public Object message(@RequestBody MessageForm form) {
-        return messageManager.getMessage(form);
+        try {
+            return messageManager.getMessage(form);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 
 }

@@ -1,10 +1,7 @@
-package pers.hogwarts.Manager;
+package pers.hogwarts.manager;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import pers.hogwarts.Common.HttpClient;
+import pers.hogwarts.common.HttpClient;
 import pers.hogwarts.model.result.UserInfoResult;
 
 /**

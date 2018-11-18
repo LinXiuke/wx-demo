@@ -1,4 +1,4 @@
-package pers.hogwarts.Manager;
+package pers.hogwarts.manager;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -45,7 +45,6 @@ public class MessageManager {
 
             return imageVO;
         }
-
 
         MessageVO messageVO = new MessageVO();
         messageVO.setToUserName(form.getFromUserName());
